@@ -92,9 +92,9 @@ pdm install -G dev
 
 | 変数名 | 説明 | 例 |
 |--------|------|-----|
-| GCP_PROJECT_ID | Google CloudのプロジェクトID | my-project-123 |
-| GCP_SUBSCRIPTION_ID | Pub/Subのサブスクリプション名 | my-subscription |
-| GCP_TOPIC_ID | Pub/SubのトピックID | my-topic |
+| PROJECT_ID | Google CloudのプロジェクトID | my-project-123 |
+| SUBSCRIPTION_ID | Pub/Subのサブスクリプション名 | my-subscription |
+| TOPIC_ID | Pub/SubのトピックID | my-topic |
 
 ## エラー対処
 
