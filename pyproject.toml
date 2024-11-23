@@ -1,0 +1,31 @@
+[project]
+name = "pubsub-message-counter"
+version = "0.1.0"
+description = "Google Cloud Pub/Sub メッセージカウンター"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+dependencies = [
+    "google-cloud-pubsub>=2.13.0",
+    "python-dotenv>=1.0.0",
+]
+requires-python = ">=3.9"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm]
+package-dir = "src"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+]
+
+[tool.pdm.scripts]
+start = "python src/pubsub_message_counter/main.py"
+
+[build-system]
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
