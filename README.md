@@ -54,9 +54,28 @@ pdm run start
 
 2. topicにメッセージを送信
 ```
-pubsub topics publish <topic-id> --message=<any message>
+gcloud pubsub topics publish <topic-id> --message=<any message>
 ```
 
+3. (Optional）topicにattribute付きのメッセージを送信
+
+```
+gcloud pubsub topics publish <topic-id> --message=<any message> \
+ --attribute="content-type=application/json" \
+```
+
+ex)
+```
+gcloud pubsub topics publish my-topic \
+  --message='{
+    "user": {
+      "name": "Taro",
+      "age": 30
+    }
+  }' \
+  --attribute="content-type=application/json"
+
+```
 
 ## 開発環境のセットアップ
 
