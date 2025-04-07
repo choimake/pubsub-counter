@@ -19,12 +19,17 @@ class MessageCounter:
     def callback(self, message):
         try:
             data = message.data.decode('utf-8')
-            self.counter[data] += 1
+            attributes = message.attributes
+            message_id = message.message_id
+
+            self.counter[message_id] += 1
+            logger.info(f"メッセージID: {message_id}")
             logger.info(f"受信メッセージ: {data}")
-            logger.info(f"'{data}'の現在のカウント: {self.counter[data]}")
+            logger.info(f"メッセージヘッダー: {attributes}")
+            logger.info(f"メッセージID'{message_id}'の現在のカウント: {self.counter[message_id]}")
             logger.info(f"総受信メッセージ数: {sum(self.counter.values())}")
-            # message.ack()
-            message.nack()
+            message.ack()
+            # message.nack()
         except Exception as e:
             logger.error(f"メッセージ処理エラー: {e}")
             message.nack()
